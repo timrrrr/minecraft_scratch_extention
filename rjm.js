@@ -108,7 +108,7 @@ class RaspberryJamMod {
                 "arguments": {
                     "msg": {
                         "type": "string",
-                        "defaultValue": "Привет, Байтик!"
+                        "defaultValue": "Привет, мир!"
                     },
                 }
         },            
