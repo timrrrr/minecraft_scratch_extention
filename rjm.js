@@ -1088,11 +1088,14 @@ class RaspberryJamMod {
     };
     executeCommand({cmd}) {
         if (this.socket) {
-            this.socket.send(`chat.post(${cmd})`);
+            this.socket.send(JSON.stringify({
+                type: "command",
+                command: cmd
+            }));
         } else {
             console.error("Не подключено к Minecraft серверу");
         }
-    };
+    }
     
     getLine(x1,y1,z1,x2,y2,z2) {
         var line = [];
