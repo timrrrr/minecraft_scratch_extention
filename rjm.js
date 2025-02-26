@@ -91,304 +91,245 @@ class RaspberryJamMod {
             "name": "Minecraft",
             
             "blocks": [{
-                "opcode": "connect_p",
-                "blockType": "command",
-                "text": "подключиться к Майнкрафту на [ip]",
-                "arguments": {
-                    "ip": {
-                        "type": "string",
-                        "defaultValue": "localhost"
-                    },
-                }
-        },
-        {
-                "opcode": "chat",
-                "blockType": "command",
-                "text": "написать в чат [msg]",
-                "arguments": {
-                    "msg": {
-                        "type": "string",
-                        "defaultValue": "Привет, мир!"
-                    },
-                }
-        },            
-        {
-                "opcode": "blockByName",
-                "blockType": "reporter",
-                "text": "ID блока с именем [name]",
-                "arguments": {
-                    "name": {
-                        "type": "string",
-                        "defaultValue": "1,0",
-                        "menu": "blockMenu"
+                    "opcode": "connect_p",
+                    "blockType": "command",
+                    "text": "подключиться к Minecraft по адресу [ip]",
+                    "arguments": {
+                        "ip": {
+                            "type": "string",
+                            "defaultValue": "localhost"
+                        },
                     }
-                }
-        },            
-        {
-                "opcode": "getBlock",
-                "blockType": "reporter",
-                "text": "ID блока на координатах ([x],[y],[z])",
-                "arguments": {
-                    "x": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "y": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "z": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                }
-        },             
-/*            {
-                "opcode": "haveBlock",
-                "blockType": "Boolean",
-                "text": "есть блок [b] на ([x],[y],[z])",
-                "arguments": {
-                    "b": {
-                        "type": "string",
-                        "defaultValue": "1,0",
-                        "menu": "blockMenu"
-                    },
-                    "x": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "y": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "z": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                }
-        },             */
-        /* {
-                "opcode": "onBlock",
-                "blockType": "Boolean",
-                "text": "игрок на блоке [b]",
-                "arguments": {
-                    "b": {
-                        "type": "string",
-                        "defaultValue": "0,0",
-                        "menu": "blockMenu"
-                    },
-                }
-        }, */
-        {
-                "opcode": "getPlayerX",
-                "blockType": "reporter",
-                "text": "позиция игрока x [mode]",
-                "arguments": {
-                    "mode": {
-                        "type": "number",
-                        "defaultValue": 0,
-                        "menu": "modeMenu"
-                    },
-                }
-        },            
-        {
-                "opcode": "getPlayerY",
-                "blockType": "reporter",
-                "text": "позиция игрока y [mode]",
-                "arguments": {
-                    "mode": {
-                        "type": "number",
-                        "defaultValue": 0,
-                        "menu": "modeMenu"
-                    },
-                }
-        },            
-        {
-                "opcode": "getPlayerZ",
-                "blockType": "reporter",
-                "text": "позиция игрока z [mode]",
-                "arguments": {
-                    "mode": {
-                        "type": "number",
-                        "defaultValue": 0,
-                        "menu": "modeMenu"
-                    },
-                }
-        },
-        {
-                "opcode": "getPlayerVector",
-                "blockType": "reporter",
-                "text": "вектор позиции игрока [mode]",
-                "arguments": {
-                    "mode": {
-                        "type": "number",
-                        "defaultValue": 0,
-                        "menu": "modeMenu"
-                    },
-                }
-        },
-        {
-                "opcode": "getHit",
-                "blockType": "reporter",
-                "text": "позиция удара мечом",
-                "arguments": {
-                }
-        },            
-        {
-                "opcode": "extractFromVector",
-                "blockType": "reporter",
-                "text": "[coordinate]-координата вектора [vector]",
-                "arguments": {
-                    "coordinate": {
-                        "type": "number",
-                        "defaultValue": 0,
-                        "menu": "coordinateMenu"
-                    },
-                    "vector": {
-                        "type": "string",
-                        "defaultValue": "0,0,0",
-                    },
-                }
-        },          
-        {
-                "opcode": "makeVector",
-                "blockType": "reporter",
-                "text": "вектор ([x],[y],[z])",
-                "arguments": {
-                    "x": {
-                        "type": "number",
-                        "defaultValue": 0,
-                    },
-                    "y": {
-                        "type": "number",
-                        "defaultValue": 0,
-                    },
-                    "z": {
-                        "type": "number",
-                        "defaultValue": 0,
-                    },
-                }
-        },                
-        {
-                "opcode": "setBlock",
-                "blockType": "command",
-                "text": "установить блок [b] на ([x],[y],[z])",
-                "arguments": {
-                    "x": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "y": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "z": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "b": {
-                        "type": "string",
-                        "defaultValue": "1,0",
-                        "menu": "blockMenu"
-                    },
-                }
-        },            
-/*            {
-                "opcode": "setBlock",
-                "blockType": "command",
-                "text": "установить блок с ID [b] на ([x],[y],[z])",
-                "arguments": {
-                    "x": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "y": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "z": {
-                        "type": "number",
-                        "defaultValue": "0"
-                    },
-                    "b": {
-                        "type": "string",
-                        "defaultValue": "1,0"
-                    },
-                }
-        },       */      
-        {
-                "opcode": "setPlayerPos",
-                "blockType": "command",
-                "text": "переместить игрока на ([x],[y],[z])",
-                "arguments": {
-                    "x": {
-                        "type": "number",
-                        "defaultValue": 0
-                    },
-                    "y": {
-                        "type": "number",
-                        "defaultValue": 0
-                    },
-                    "z": {
-                        "type": "number",
-                        "defaultValue": 0
-                    },
-                }
-        },            
-        {
-                "opcode": "movePlayer",
-                "blockType": "command",
-                "text": "переместить игрока на ([dx],[dy],[dz])",
-                "arguments": {
-                    "dx": {
-                        "type": "number",
-                        "defaultValue": 0
-                    },
-                    "dy": {
-                        "type": "number",
-                        "defaultValue": 0
-                    },
-                    "dz": {
-                        "type": "number",
-                        "defaultValue": 0
-                    },
-                }
-        },         
-        {
-                "opcode": "movePlayerTop",
-                "blockType": "command",
-                "text": "переместить игрока наверх",
-                "arguments": {
-                }
-        },         
-        {
-                "opcode": "spawnEntity",
-                "blockType": "command",
-                "text": "создать существо [entity] на ([x],[y],[z])",
-                "arguments": {
-                    "entity": {
-                        "type": "string",
-                        "defaultValue": "Villager",
-                        "menu": "entityMenu"
-                    },
-                    "x": {
-                        "type": "number",
-                        "defaultValue": 0
-                    },
-                    "y": {
-                        "type": "number",
-                        "defaultValue": 0
-                    },
-                    "z": {
-                        "type": "number",
-                        "defaultValue": 0
-                    },
-                }
+            },
+            {
+                    "opcode": "chat",
+                    "blockType": "command",
+                    "text": "сказать в чате [msg]",
+                    "arguments": {
+                        "msg": {
+                            "type": "string",
+                            "defaultValue": "Hello, World!"
+                        },
+                    }
+            },            
+            {
+                    "opcode": "blockByName",
+                    "blockType": "reporter",
+                    "text": "ID блока для [name]",
+                    "arguments": {
+                        "name": {
+                            "type": "string",
+                            "defaultValue": "1,0",
+                            "menu": "blockMenu"
+                        }
+                    }
+            },            
+            {
+                    "opcode": "getBlock",
+                    "blockType": "reporter",
+                    "text": "ID блока в ([x],[y],[z])",
+                    "arguments": {
+                        "x": {
+                            "type": "number",
+                            "defaultValue": "0"
+                        },
+                        "y": {
+                            "type": "number",
+                            "defaultValue": "0"
+                        },
+                        "z": {
+                            "type": "number",
+                            "defaultValue": "0"
+                        },
+                    }
+            },             
+            {
+                    "opcode": "getPlayerX",
+                    "blockType": "reporter",
+                    "text": "x-координата игрока ([mode] положение)",
+                    "arguments": {
+                        "mode": {
+                            "type": "number",
+                            "defaultValue": 0,
+                            "menu": "modeMenu"
+                        },
+                    }
+            },            
+            {
+                    "opcode": "getPlayerY",
+                    "blockType": "reporter",
+                    "text": "y-координата игрока ([mode] положение)",
+                    "arguments": {
+                        "mode": {
+                            "type": "number",
+                            "defaultValue": 0,
+                            "menu": "modeMenu"
+                        },
+                    }
+            },            
+            {
+                    "opcode": "getPlayerZ",
+                    "blockType": "reporter",
+                    "text": "z-координата игрока ([mode] положение)",
+                    "arguments": {
+                        "mode": {
+                            "type": "number",
+                            "defaultValue": 0,
+                            "menu": "modeMenu"
+                        },
+                    }
+            },
+            {
+                    "opcode": "getPlayerVector",
+                    "blockType": "reporter",
+                    "text": "вектор позиции игрока ([mode] положение)",
+                    "arguments": {
+                        "mode": {
+                            "type": "number",
+                            "defaultValue": 0,
+                            "menu": "modeMenu"
+                        },
+                    }
+            },
+            {
+                    "opcode": "getHit",
+                    "blockType": "reporter",
+                    "text": "вектор удара меча",
+                    "arguments": {
+                    }
+            },            
+            {
+                    "opcode": "extractFromVector",
+                    "blockType": "reporter",
+                    "text": "[coordinate]-ая координата вектора [vector]",
+                    "arguments": {
+                        "coordinate": {
+                            "type": "number",
+                            "defaultValue": 0,
+                            "menu": "coordinateMenu"
+                        },
+                        "vector": {
+                            "type": "string",
+                            "defaultValue": "0,0,0",
+                        },
+                    }
+            },          
+            {
+                    "opcode": "makeVector",
+                    "blockType": "reporter",
+                    "text": "вектор ([x],[y],[z])",
+                    "arguments": {
+                        "x": {
+                            "type": "number",
+                            "defaultValue": 0,
+                        },
+                        "y": {
+                            "type": "number",
+                            "defaultValue": 0,
+                        },
+                        "z": {
+                            "type": "number",
+                            "defaultValue": 0,
+                        },
+                    }
+            },                
+            {
+                    "opcode": "setBlock",
+                    "blockType": "command",
+                    "text": "установить [b] в ([x],[y],[z])",
+                    "arguments": {
+                        "x": {
+                            "type": "number",
+                            "defaultValue": "0"
+                        },
+                        "y": {
+                            "type": "number",
+                            "defaultValue": "0"
+                        },
+                        "z": {
+                            "type": "number",
+                            "defaultValue": "0"
+                        },
+                        "b": {
+                            "type": "string",
+                            "defaultValue": "1,0",
+                            "menu": "blockMenu"
+                        },
+                    }
+            },            
+            {
+                    "opcode": "setPlayerPos",
+                    "blockType": "command",
+                    "text": "переместить игрока в ([x],[y],[z])",
+                    "arguments": {
+                        "x": {
+                            "type": "number",
+                            "defaultValue": 0
+                        },
+                        "y": {
+                            "type": "number",
+                            "defaultValue": 0
+                        },
+                        "z": {
+                            "type": "number",
+                            "defaultValue": 0
+                        },
+                    }
+            },            
+            {
+                    "opcode": "movePlayer",
+                    "blockType": "command",
+                    "text": "сдвинуть игрока на ([dx],[dy],[dz])",
+                    "arguments": {
+                        "dx": {
+                            "type": "number",
+                            "defaultValue": 0
+                        },
+                        "dy": {
+                            "type": "number",
+                            "defaultValue": 0
+                        },
+                        "dz": {
+                            "type": "number",
+                            "defaultValue": 0
+                        },
+                    }
+            },         
+            {
+                    "opcode": "movePlayerTop",
+                    "blockType": "command",
+                    "text": "поднять игрока наверх",
+                    "arguments": {
+                    }
+            },         
+            {
+                    "opcode": "spawnEntity",
+                    "blockType": "command",
+                    "text": "создать [entity] в ([x],[y],[z])",
+                    "arguments": {
+                        "entity": {
+                            "type": "string",
+                            "defaultValue": "Villager",
+                            "menu": "entityMenu"
+                        },
+                        "x": {
+                            "type": "number",
+                            "defaultValue": 0
+                        },
+                        "y": {
+                            "type": "number",
+                            "defaultValue": 0
+                        },
+                        "z": {
+                            "type": "number",
+                            "defaultValue": 0
+                        },
+                    }
             },
             {
                     "opcode": "moveTurtle",
                     "blockType": "command",
-                    "text": "turtle [dir] [n]",
+                    "text": "двигать черепашку [dir] на [n]",
                     "arguments": {
                         "dir": {
                             "type": "number",
@@ -404,7 +345,7 @@ class RaspberryJamMod {
             {
                     "opcode": "leftTurtle",
                     "blockType": "command",
-                    "text": "turtle turn left [n] degrees",
+                    "text": "черепашка повернуть налево на [n] градусов",
                     "arguments": {
                         "n": {
                             "type": "number",
@@ -415,7 +356,7 @@ class RaspberryJamMod {
             {
                     "opcode": "rightTurtle",
                     "blockType": "command",
-                    "text": "turtle turn right [n] degrees",
+                    "text": "черепашка повернуть направо на [n] градусов",
                     "arguments": {
                         "n": {
                             "type": "number",
@@ -426,7 +367,7 @@ class RaspberryJamMod {
             {
                     "opcode": "turnTurtle",
                     "blockType": "command",
-                    "text": "turtle [dir] [n] degrees",
+                    "text": "черепашка повернуть [dir] на [n] градусов",
                     "arguments": {
                         "dir": {
                             "type": "string",
@@ -442,7 +383,7 @@ class RaspberryJamMod {
             {
                     "opcode": "pen",
                     "blockType": "command",
-                    "text": "turtle pen [state]",
+                    "text": "перо черепашки [state]",
                     "arguments": {
                         "state": {
                             "type": "number",
@@ -454,7 +395,7 @@ class RaspberryJamMod {
             {
                     "opcode": "turtleBlock",
                     "blockType": "command",
-                    "text": "turtle pen block [b]",
+                    "text": "блок пера черепашки [b]",
                     "arguments": {
                         "b": {
                             "type": "string",
@@ -463,21 +404,10 @@ class RaspberryJamMod {
                         }
                     }
             },            
-/*            {
-                    "opcode": "turtleBlock",
-                    "blockType": "command",
-                    "text": "turtle pen block with id [b]",
-                    "arguments": {
-                        "b": {
-                            "type": "string",
-                            "defaultValue": "1,0",
-                        }
-                    }
-            },             */
             {
                     "opcode": "turtleThickness",
                     "blockType": "command",
-                    "text": "turtle pen thickness [n]",
+                    "text": "толщина пера черепашки [n]",
                     "arguments": {
                         "n": {
                             "type": "number",
@@ -488,7 +418,7 @@ class RaspberryJamMod {
             {
                     "opcode": "setTurtlePosition",
                     "blockType": "command",
-                    "text": "turtle move to ([x],[y],[z])",
+                    "text": "переместить черепашку в ([x],[y],[z])",
                     "arguments": {
                         "x": {
                             "type": "number",
@@ -507,7 +437,7 @@ class RaspberryJamMod {
             {
                     "opcode": "resetTurtleAngle",
                     "blockType": "command",
-                    "text": "turtle reset to [n] degrees",
+                    "text": "сбросить угол черепашки до [n] градусов",
                     "arguments": {
                         "n": {
                             "type": "number",
@@ -518,55 +448,38 @@ class RaspberryJamMod {
             {
                     "opcode": "saveTurtle",
                     "blockType": "command",
-                    "text": "turtle save",
+                    "text": "сохранить состояние черепашки",
                     "arguments": {
                     }
             },            
             {
                     "opcode": "restoreTurtle",
                     "blockType": "command",
-                    "text": "turtle restore",
+                    "text": "восстановить состояние черепашки",
                     "arguments": {
                     }
             },            
             {
                     "opcode": "suspend",
                     "blockType": "command",
-                    "text": "suspend drawing",
+                    "text": "приостановить рисование",
                     "arguments": {
                     }
             },            
             {
                     "opcode": "resume",
                     "blockType": "command",
-                    "text": "resume drawing",
+                    "text": "возобновить рисование",
                     "arguments": {
                     }
-            },   
-            
-            //fixme thats a custom block
-            {
-                "opcode": "executeCommand",
-                "blockType": "command",
-                "text": "выполнить команду [cmd]",
-                "arguments": {
-                    "cmd": {
-                        "type": "string",
-                        "defaultValue": "/time set day"
-                    }
-                }
-            },
-            
-
-
-
+            },            
             ],
         "menus": {
-            moveMenu: [{text:"forward",value:1}, {text:"back",value:-1}],
-            penMenu: [{text:"down",value:1}, {text:"up",value:0}],
+            moveMenu: [{text:"вперёд",value:1}, {text:"назад",value:-1}],
+            penMenu: [{text:"опущено",value:1}, {text:"поднято",value:0}],
             coordinateMenu: [{text:"x",value:0}, {text:"y",value:1}, {text:"z",value:2}],
-            turnMenu: [ "yaw", "pitch", "roll" ],
-            modeMenu: [{text:"exact",value:1},{text:"block",value:0}],
+            turnMenu: [ "рысканье", "тангаж", "крен" ],
+            modeMenu: [{text:"точное",value:1},{text:"блочное",value:0}],
             entityMenu: ["Item",
                 "XPOrb",
                 "LeashKnot",
@@ -630,154 +543,154 @@ class RaspberryJamMod {
                 "EnderCrystal",],
             blockMenu: { acceptReporters: true,
                 items: [
-                {text:"air",value:"0,0"},
-                {text:"bed",value:"26,0"},
-                {text:"bedrock",value:"7,0"},
-                {text:"bookshelf",value:"47,0"},
-                {text:"brick block",value:"45,0"},
-                {text:"cactus",value:"81,0"},
-                {text:"carpet black",value:"171,15"},
-                {text:"carpet blue",value:"171,11"},
-                {text:"carpet brown",value:"171,12"},
-                {text:"carpet cyan",value:"171,9"},
-                {text:"carpet gray",value:"171,7"},
-                {text:"carpet green",value:"171,13"},
-                {text:"carpet light blue",value:"171,3"},
-                {text:"carpet light gray",value:"171,8"},
-                {text:"carpet lime",value:"171,5"},
-                {text:"carpet magenta",value:"171,2"},
-                {text:"carpet orange",value:"171,1"},
-                {text:"carpet pink",value:"171,6"},
-                {text:"carpet purple",value:"171,10"},
-                {text:"carpet red",value:"171,14"},
-                {text:"carpet white",value:"171"},
-                {text:"carpet yellow",value:"171,4"},
-                {text:"chest",value:"54,0"},
-                {text:"clay",value:"82,0"},
-                {text:"coal block",value:"173,0"},
-                {text:"coal ore",value:"16,0"},
-                {text:"cobblestone",value:"4,0"},
-                {text:"cobweb",value:"30,0"},
-                {text:"crafting table",value:"58,0"},
-                {text:"diamond block",value:"57,0"},
-                {text:"diamond ore",value:"56,0"},
-                {text:"dirt",value:"3,0"},
-                {text:"door iron",value:"71,0"},
-                {text:"door wood",value:"64,0"},
-                {text:"double tallgrass",value:"175,2"},
-                {text:"farmland",value:"60,0"},
-                {text:"fence gate",value:"107,0"},
-                {text:"fence",value:"85,0"},
-                {text:"fire",value:"51,0"},
-                {text:"flower cyan",value:"38,0"},
-                {text:"flower yellow",value:"37,0"},
-                {text:"furnace active",value:"62,0"},
-                {text:"furnace inactive",value:"61,0"},
-                {text:"glass pane",value:"102,0"},
-                {text:"glass",value:"20,0"},
-                {text:"glowstone block",value:"89,0"},
-                {text:"gold block",value:"41,0"},
-                {text:"gold ore",value:"14,0"},
-                {text:"grass tall",value:"31,0"},
-                {text:"grass",value:"2,0"},
-                {text:"gravel",value:"13,0"},
-                {text:"hardened clay stained black",value:"159,15"},
-                {text:"hardened clay stained blue",value:"159,11"},
-                {text:"hardened clay stained brown",value:"159,12"},
-                {text:"hardened clay stained cyan",value:"159,9"},
-                {text:"hardened clay stained gray",value:"159,7"},
-                {text:"hardened clay stained green",value:"159,13"},
-                {text:"hardened clay stained light blue",value:"159,3"},
-                {text:"hardened clay stained light gray",value:"159,8"},
-                {text:"hardened clay stained lime",value:"159,5"},
-                {text:"hardened clay stained magenta",value:"159,2"},
-                {text:"hardened clay stained orange",value:"159,1"},
-                {text:"hardened clay stained pink",value:"159,6"},
-                {text:"hardened clay stained purple",value:"159,10"},
-                {text:"hardened clay stained red",value:"159,14"},
-                {text:"hardened clay stained white",value:"159,0"},
-                {text:"hardened clay stained yellow",value:"159,4"},
-                {text:"ice",value:"79,0"},
-                {text:"iron block",value:"42,0"},
-                {text:"iron ore",value:"15,0"},
-                {text:"ladder",value:"65,0"},
-                {text:"lapis lazuli block",value:"22,0"},
-                {text:"lapis lazuli ore",value:"21,0"},
-                {text:"large fern",value:"175,3"},
-                {text:"lava flowing",value:"10,0"},
-                {text:"lava stationary",value:"11,0"},
-                {text:"leaves birch",value:"18,6"},
-                {text:"leaves jungle",value:"18,7"},
-                {text:"leaves oak",value:"18,4"},
-                {text:"leaves spruce",value:"18,5"},
-                {text:"leaves",value:"18,0"},
-                {text:"lilac",value:"175,1"},
-                {text:"melon",value:"103,0"},
-                {text:"moss stone",value:"48,0"},
-                {text:"mushroom brown",value:"39,0"},
-                {text:"mushroom red",value:"40,0"},
-                {text:"obsidian",value:"49,0"},
-                {text:"peony",value:"175,5"},
-                {text:"quartz block",value:"155,0"},
-                {text:"redstone block",value:"152,0"},
-                {text:"redstone lamp active",value:"124,0"},
-                {text:"redstone lamp inactive",value:"123,0"},
-                {text:"redstone ore",value:"73,0"},
-                {text:"rose bush",value:"175,4"},
-                {text:"sand",value:"12,0"},
-                {text:"sandstone",value:"24,0"},
-                {text:"sapling",value:"6,0"},
-                {text:"sea lantern",value:"169,0"},
-                {text:"snow block",value:"80,0"},
-                {text:"snow",value:"78,0"},
-                {text:"stained glass black",value:"95,15"},
-                {text:"stained glass blue",value:"95,11"},
-                {text:"stained glass brown",value:"95,12"},
-                {text:"stained glass cyan",value:"95,9"},
-                {text:"stained glass gray",value:"95,7"},
-                {text:"stained glass green",value:"95,13"},
-                {text:"stained glass light blue",value:"95,3"},
-                {text:"stained glass light gray",value:"95,8"},
-                {text:"stained glass lime",value:"95,5"},
-                {text:"stained glass magenta",value:"95,2"},
-                {text:"stained glass orange",value:"95,1"},
-                {text:"stained glass pink",value:"95,6"},
-                {text:"stained glass purple",value:"95,10"},
-                {text:"stained glass red",value:"95,14"},
-                {text:"stained glass white",value:"95,0"},
-                {text:"stained glass yellow",value:"95,4"},
-                {text:"stairs cobblestone",value:"67,0"},
-                {text:"stairs wood",value:"53,0"},
-                {text:"stone brick",value:"98,0"},
-                {text:"stone button",value:"77,0"},
-                {text:"stone slab double",value:"43,0"},
-                {text:"stone slab",value:"44,0"},
-                {text:"stone",value:"1,0"},
-                {text:"sugar cane",value:"83,0"},
-                {text:"sunflower",value:"175,0"},
+                {text:"воздух",value:"0,0"},
+                {text:"кровать",value:"26,0"},
+                {text:"бедрок",value:"7,0"},
+                {text:"книжная полка",value:"47,0"},
+                {text:"кирпичный блок",value:"45,0"},
+                {text:"кактус",value:"81,0"},
+                {text:"черный ковер",value:"171,15"},
+                {text:"синий ковер",value:"171,11"},
+                {text:"коричневый ковер",value:"171,12"},
+                {text:"бирюзовый ковер",value:"171,9"},
+                {text:"серый ковер",value:"171,7"},
+                {text:"зеленый ковер",value:"171,13"},
+                {text:"светло-синий ковер",value:"171,3"},
+                {text:"светло-серый ковер",value:"171,8"},
+                {text:"лаймовый ковер",value:"171,5"},
+                {text:"малиновый ковер",value:"171,2"},
+                {text:"оранжевый ковер",value:"171,1"},
+                {text:"розовый ковер",value:"171,6"},
+                {text:"фиолетовый ковер",value:"171,10"},
+                {text:"красный ковер",value:"171,14"},
+                {text:"белый ковер",value:"171"},
+                {text:"желтый ковер",value:"171,4"},
+                {text:"сундук",value:"54,0"},
+                {text:"глина",value:"82,0"},
+                {text:"блок угля",value:"173,0"},
+                {text:"руда угля",value:"16,0"},
+                {text:"булыжник",value:"4,0"},
+                {text:"паутина",value:"30,0"},
+                {text:"верстак",value:"58,0"},
+                {text:"алмазный блок",value:"57,0"},
+                {text:"алмазная руда",value:"56,0"},
+                {text:"земля",value:"3,0"},
+                {text:"железная дверь",value:"71,0"},
+                {text:"деревянная дверь",value:"64,0"},
+                {text:"двойная высокая трава",value:"175,2"},
+                {text:"обработанная земля",value:"60,0"},
+                {text:"ворота забора",value:"107,0"},
+                {text:"забор",value:"85,0"},
+                {text:"огонь",value:"51,0"},
+                {text:"голубой цветок",value:"38,0"},
+                {text:"желтый цветок",value:"37,0"},
+                {text:"работающая печь",value:"62,0"},
+                {text:"неактивная печь",value:"61,0"},
+                {text:"стеклянная панель",value:"102,0"},
+                {text:"стекло",value:"20,0"},
+                {text:"блок светокамня",value:"89,0"},
+                {text:"золотой блок",value:"41,0"},
+                {text:"золотая руда",value:"14,0"},
+                {text:"травка",value:"2,0"},
+                {text:"булыжник",value:"31,0"},
+                {text:"гравий",value:"13,0"},
+                {text:"окрашенная глина черного цвета",value:"159,15"},
+                {text:"окрашенная глина синего цвета",value:"159,11"},
+                {text:"окрашенная глина коричневого цвета",value:"159,12"},
+                {text:"окрашенная глина бирюзового цвета",value:"159,9"},
+                {text:"окрашенная глина серого цвета",value:"159,7"},
+                {text:"окрашенная глина зеленого цвета",value:"159,13"},
+                {text:"окрашенная глина светло-синего цвета",value:"159,3"},
+                {text:"окрашенная глина светло-серого цвета",value:"159,8"},
+                {text:"окрашенная глина лаймового цвета",value:"159,5"},
+                {text:"окрашенная глина малинового цвета",value:"159,2"},
+                {text:"окрашенная глина оранжевого цвета",value:"159,1"},
+                {text:"окрашенная глина розового цвета",value:"159,6"},
+                {text:"окрашенная глина фиолетового цвета",value:"159,10"},
+                {text:"окрашенная глина красного цвета",value:"159,14"},
+                {text:"окрашенная глина белого цвета",value:"159,0"},
+                {text:"окрашенная глина желтого цвета",value:"159,4"},
+                {text:"лед",value:"79,0"},
+                {text:"железный блок",value:"42,0"},
+                {text:"железная руда",value:"15,0"},
+                {text:"лесенка",value:"65,0"},
+                {text:"лазуритовый блок",value:"22,0"},
+                {text:"лазуритовая руда",value:"21,0"},
+                {text:"большой папоротник",value:"175,3"},
+                {text:"текущая лава",value:"10,0"},
+                {text:"стационарная лава",value:"11,0"},
+                {text:"листья березы",value:"18,6"},
+                {text:"листья джунглей",value:"18,7"},
+                {text:"листья дуба",value:"18,4"},
+                {text:"листья ели",value:"18,5"},
+                {text:"листья",value:"18,0"},
+                {text:"сирень",value:"175,1"},
+                {text:"дыня",value:"103,0"},
+                {text:"моховой камень",value:"48,0"},
+                {text:"коричневый гриб",value:"39,0"},
+                {text:"красный гриб",value:"40,0"},
+                {text:"обсидиан",value:"49,0"},
+                {text:"пион",value:"175,5"},
+                {text:"блок кварца",value:"155,0"},
+                {text:"блок красного камня",value:"152,0"},
+                {text:"активная красная лампа",value:"124,0"},
+                {text:"неактивная красная лампа",value:"123,0"},
+                {text:"руда красного камня",value:"73,0"},
+                {text:"кустарник роз",value:"175,4"},
+                {text:"песок",value:"12,0"},
+                {text:"песчаник",value:"24,0"},
+                {text:"саженец",value:"6,0"},
+                {text:"морской фонарь",value:"169,0"},
+                {text:"блок снега",value:"80,0"},
+                {text:"снег",value:"78,0"},
+                {text:"окрашенное стекло черного цвета",value:"95,15"},
+                {text:"окрашенное стекло синего цвета",value:"95,11"},
+                {text:"окрашенное стекло коричневого цвета",value:"95,12"},
+                {text:"окрашенное стекло бирюзового цвета",value:"95,9"},
+                {text:"окрашенное стекло серого цвета",value:"95,7"},
+                {text:"окрашенное стекло зеленого цвета",value:"95,13"},
+                {text:"окрашенное стекло светло-синего цвета",value:"95,3"},
+                {text:"окрашенное стекло светло-серого цвета",value:"95,8"},
+                {text:"окрашенное стекло лаймового цвета",value:"95,5"},
+                {text:"окрашенное стекло малинового цвета",value:"95,2"},
+                {text:"окрашенное стекло оранжевого цвета",value:"95,1"},
+                {text:"окрашенное стекло розового цвета",value:"95,6"},
+                {text:"окрашенное стекло фиолетового цвета",value:"95,10"},
+                {text:"окрашенное стекло красного цвета",value:"95,14"},
+                {text:"окрашенное стекло белого цвета",value:"95,0"},
+                {text:"окрашенное стекло желтого цвета",value:"95,4"},
+                {text:"ступеньки из булыжника",value:"67,0"},
+                {text:"деревянные ступеньки",value:"53,0"},
+                {text:"кирпичный камень",value:"98,0"},
+                {text:"каменная кнопка",value:"77,0"},
+                {text:"двойная каменная плитка",value:"43,0"},
+                {text:"каменная плитка",value:"44,0"},
+                {text:"камень",value:"1,0"},
+                {text:"сахарный тростник",value:"83,0"},
+                {text:"подсолнух",value:"175,0"},
                 {text:"TNT",value:"46,0"},
-                {text:"torch",value:"50,0"},
-                {text:"water flowing",value:"8,0"},
-                {text:"water stationary",value:"9,0"},
-                {text:"wood button",value:"143,0"},
-                {text:"wood planks",value:"5,0"},
-                {text:"wood",value:"17,0"},
-                {text:"wool black",value:"35,15"},
-                {text:"wool blue",value:"35,11"},
-                {text:"wool brown",value:"35,12"},
-                {text:"wool cyan",value:"35,9"},
-                {text:"wool gray",value:"35,7"},
-                {text:"wool green",value:"35,13"},
-                {text:"wool light blue",value:"35,3"},
-                {text:"wool light gray",value:"35,8"},
-                {text:"wool lime",value:"35,5"},
-                {text:"wool magenta",value:"35,2"},
-                {text:"wool orange",value:"35,1"},
-                {text:"wool pink",value:"35,6"},
-                {text:"wool purple",value:"35,10"},
-                {text:"wool red",value:"35,14"},
-                {text:"wool white",value:"35,0"},
-                {text:"wool yellow",value:"35,4"}
+                {text:"факел",value:"50,0"},
+                {text:"текущая вода",value:"8,0"},
+                {text:"стоящая вода",value:"9,0"},
+                {text:"деревянная кнопка",value:"143,0"},
+                {text:"деревянные доски",value:"5,0"},
+                {text:"дерево",value:"17,0"},
+                {text:"шерсть черная",value:"35,15"},
+                {text:"шерсть синяя",value:"35,11"},
+                {text:"шерсть коричневая",value:"35,12"},
+                {text:"шерсть бирюзовая",value:"35,9"},
+                {text:"шерсть серая",value:"35,7"},
+                {text:"шерсть зеленая",value:"35,13"},
+                {text:"шерсть светло-синяя",value:"35,3"},
+                {text:"шерсть светло-серая",value:"35,8"},
+                {text:"шерсть лаймовая",value:"35,5"},
+                {text:"шерсть малиновая",value:"35,2"},
+                {text:"шерсть оранжевая",value:"35,1"},
+                {text:"шерсть розовая",value:"35,6"},
+                {text:"шерсть фиолетовая",value:"35,10"},
+                {text:"шерсть красная",value:"35,14"},
+                {text:"шерсть белая",value:"35,0"},
+                {text:"шерсть желтая",value:"35,4"}
             ]            
             }
             }
@@ -823,7 +736,7 @@ class RaspberryJamMod {
         if (this.savedBlocks == null) {
             this.savedBlocks = new Map();
         }
-    }
+    };
     
     drawBlock(x,y,z,b) {
         if (this.savedBlocks != null) {
@@ -962,7 +875,7 @@ class RaspberryJamMod {
     };
 
     movePlayer({dx,dy,dz}) {
-        var [x,y,z] = this.parseXYZ(dx,dy,dz);
+        var [x,y,z] = this.parseXYZ(dx,dy,dz).map(Math.floor);
         return this.getPosition().then(pos => this.setPlayerPos({x:pos[0]+x,y:pos[1]+y,z:pos[2]+z}));
     };
 
@@ -1086,16 +999,6 @@ class RaspberryJamMod {
     chat({msg}){
         this.socket.send("chat.post("+msg+")");
     };
-    executeCommand({cmd}) {
-        if (this.socket) {
-            this.socket.send(JSON.stringify({
-                type: "command",
-                command: cmd
-            }));
-        } else {
-            console.error("Не подключено к Minecraft серверу");
-        }
-    }
     
     getLine(x1,y1,z1,x2,y2,z2) {
         var line = [];
